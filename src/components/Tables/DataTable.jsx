@@ -10,7 +10,7 @@ import {
   Th,
   Tbody,
   Td,
-  useBreakpointValue,
+  Input,
   Menu,
   MenuButton,
   MenuList,
@@ -142,34 +142,39 @@ const App = () => {
           <Table mt="6">
           <Thead>
                 <Tr>
-                    <Th maxW={100} fontSize="10px">
-                    <input
-                        value={filters.id}
-                        onChange={(e) => setFilters({ ...filters, id: e.target.value })}
-                        placeholder="Por ID"
-                    />
-                    </Th>
-                    <Th maxW={100} fontSize="10px">
-                    <input
-                        value={filters.username}
-                        onChange={(e) => setFilters({ ...filters, username: e.target.value })}
-                        placeholder="Por Usuario"
-                    />
-                    </Th>
-                    <Th maxW={100} fontSize="10px">
-                    <input
-                        value={filters.groupId}
-                        onChange={(e) => setFilters({ ...filters, groupId: e.target.value })}
-                        placeholder="Por Grupo ID"
-                    />
-                    </Th>
-                    <Th maxW={100} fontSize="10px">
-                    <input
-                        value={filters.level}
-                        onChange={(e) => setFilters({ ...filters, level: e.target.value })}
-                        placeholder="Por nivel"
-                    />
-                    </Th>
+                <Th maxW={100} fontSize="14px">
+                  <Input
+                    value={filters.id}
+                    onChange={(e) => setFilters({ ...filters, id: e.target.value })}
+                    placeholder="Por ID"
+                    size="sm"
+                  />
+                </Th>
+                <Th maxW={100} fontSize="14px">
+                  <Input
+                    value={filters.username}
+                    onChange={(e) => setFilters({ ...filters, username: e.target.value })}
+                    placeholder="Por Usuario"
+                    size="sm"
+                  />
+                </Th>
+                <Th maxW={100} fontSize="14px">
+                  <Input
+                    value={filters.groupId}
+                    onChange={(e) => setFilters({ ...filters, groupId: e.target.value })}
+                    placeholder="Por Grupo ID"
+                    size="sm"
+                  />
+                </Th>
+                <Th maxW={100} fontSize="14px">
+                  <Input
+                    value={filters.level}
+                    onChange={(e) => setFilters({ ...filters, level: e.target.value })}
+                    placeholder="Por nivel"
+                    size="sm"
+                  />
+                </Th>
+
                 </Tr>
                 </Thead>
                 <Tbody>
@@ -186,18 +191,20 @@ const App = () => {
                     .slice(indexOfFirstItem, indexOfLastItem)
                     .map(({ id, username, groupId, level, updatedAt }, index) => (
                     <Tr key={index} cursor="pointer" _hover={{ bg: "gray.100" }}>
-                        <Td maxW={100} fontSize="10px">{id}</Td>
-                        <Td maxW={100} fontSize="10px">{username}</Td>
-                        <Td maxW={100} fontSize="10px">{groupId}</Td>
-                        <Td maxW={100} fontSize="10px">{level}</Td>
-                        <Td maxW={100} fontSize="10px">{updatedAt}</Td>
-                        <Td p={0}>
+                        <Td maxW={100} fontSize="12px">{id}</Td>
+                        <Td maxW={100} fontSize="12px">{username}</Td>
+                        <Td maxW={100} fontSize="12px">{groupId}</Td>
+                        <Td maxW={100} fontSize="12px">{level}</Td>
+                        <Td maxW={100} fontSize="12px">{updatedAt}</Td>
+                        <Td p="0">
                         <EditIcon
-                            fontSize={20}
+                            fontSize={16}
+                            m={1}
                             onClick={() => handleEdit(id, username, groupId, level, index)}
                         />
                         <DeleteIcon
-                            fontSize={20}
+                            fontSize={16}
+                            m={1}
                             onClick={() => handleRemove(id)}
                         />
                         </Td>
