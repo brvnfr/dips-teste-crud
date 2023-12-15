@@ -12,6 +12,7 @@ import {
   FormLabel,
   Input,
   Box,
+  Flex
 } from "@chakra-ui/react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -116,9 +117,11 @@ const ModalComponent = ({ data, setData, dataEdit, isOpen, onClose, operationTyp
 
   return (
     <>
+    
       <ToastContainer />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
+          <Flex justify="center" align="center" height="80vh">
         <ModalContent>
           <ModalHeader>Cadastro de Usuario</ModalHeader>
           <ModalCloseButton />
@@ -154,6 +157,7 @@ const ModalComponent = ({ data, setData, dataEdit, isOpen, onClose, operationTyp
             </Button>
           </ModalFooter>
         </ModalContent>
+            </Flex>
       </Modal>
     </>
   );
