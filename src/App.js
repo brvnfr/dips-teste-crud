@@ -5,6 +5,7 @@ import Users  from './pages/users'
 import About  from './pages/about'
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
+import Logo from './assets/images/brand/logo.webp'
 
 
 
@@ -15,6 +16,7 @@ function App() {
 		<>
 			
 			<header>
+				<img src={Logo} alt='Logo' className='logo' />
 				<GiHamburgerMenu onClick={()=> setShowNav(!showNav)} /> 
 			</header>
 

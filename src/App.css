@@ -19,7 +19,7 @@ header {
   padding: 1rem 2rem;
   background-color: #011627;
   display:flex;
-  justify-content: end;
+  justify-content: space-between;
   color:#eaECEF !important;
 }
 

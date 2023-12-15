@@ -160,6 +160,7 @@ const App = () => {
                     </Tr>
                     ))}
                 </Tbody>
+
           </Table>
           {data.length > 0 && (
             <Flex justify="flex-end" mb="4">
