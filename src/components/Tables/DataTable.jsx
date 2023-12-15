@@ -11,6 +11,10 @@ import {
   Tbody,
   Td,
   useBreakpointValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import ModalComponent from "../layout/Modal";
@@ -35,6 +39,34 @@ const App = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+
+  //Baixar planilha CSV
+  const downloadCSV = () => {
+    const header = Object.keys(data[0]).join(',');
+    const csv = [
+      header,
+      ...data.map(item => Object.values(item).join(','))
+    ].join('\n');
+  
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'data.csv';
+    link.click();
+  };
+  
+  // Baixar planilha em Excel
+  const downloadExcel = () => {
+    // Lógica para exportar para Excel usando uma biblioteca como xlsx ou exceljs
+    // Aqui, estou simulando o download do Excel
+    const blob = new Blob(['Dados em Excel'], { type: 'application/vnd.ms-excel' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'data.xls';
+    link.click();
+  };
+
 
   const fetchData = () => {
     fetch('https://sheetdb.io/api/v1/lh7tkv7vr283w')
@@ -92,6 +124,18 @@ const App = () => {
           <Button colorScheme="green" onClick={handleAddUser}>
             Adicionar Usuario
           </Button>
+  
+          <Menu>
+            <MenuButton as={Button} colorScheme="blue" mx={2}>
+              Baixar
+            </MenuButton>
+            <MenuList>
+              <MenuItem onClick={downloadCSV}>Baixar em CSV</MenuItem>
+              <MenuItem onClick={downloadExcel}>Baixar em Excel (XLS)</MenuItem>
+            </MenuList>
+          </Menu>
+
+
         </Flex>
 
         <Box overflowY="auto" height="100%">
