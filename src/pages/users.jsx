@@ -18,7 +18,7 @@ function Users() {
 
     return (
         <div class='container'>
-            <Box maxW={800} w="100%" h={20} px={4} py={4}>
+            <Box maxW={800} w="100%" h={200} px={1} py={4}>
             <h1>Usuarios do sistema</h1>
             </Box>
 
